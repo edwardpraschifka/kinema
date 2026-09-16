@@ -31,3 +31,14 @@ TEST(Vec3, TestSubtraction) {
   EXPECT_EQ(diff.y, -3);
   EXPECT_EQ(diff.z, -3);
 }
+
+TEST(Vec3, ScalarMultiply) {
+
+  Vec3 u{1,2,3};
+  float k{3.5};
+  Vec3 res = u.multiply(k);
+
+  EXPECT_EQ(res.x, 3.5);
+  EXPECT_EQ(res.y, 7);
+  EXPECT_EQ(res.z, 10.5);
+}
