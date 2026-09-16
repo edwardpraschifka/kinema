@@ -39,18 +39,17 @@ TEST(Vec3, TestMultiply) {
   float k{3.5};
   Vec3 res = u.multiply(k);
 
-  EXPECT_EQ(res.x, 3.5);
-  EXPECT_EQ(res.y, 7);
-  EXPECT_EQ(res.z, 10.5);
+  EXPECT_FLOAT_EQ(res.x, 3.5);
+  EXPECT_FLOAT_EQ(res.y, 7);
+  EXPECT_FLOAT_EQ(res.z, 10.5);
 }
 
 TEST(Vec3, TestDot) {
 
   Vec3 u{1,2,3};
   Vec3 v{4,5,6};
-  float res = u.dot(v);
 
-  EXPECT_EQ(res, 32);
+  EXPECT_FLOAT_EQ(u.dot(v), 32);
 }
 
 TEST(Vec3, TestCross) {
@@ -66,17 +65,12 @@ TEST(Vec3, TestCross) {
 
 TEST(Vec3, TestLength) {
   Vec3 u{1,2,3};
-  float res = u.length();
-  float expected = std::sqrt(14);
-
-  EXPECT_EQ(res, expected);
+  EXPECT_FLOAT_EQ(u.length(), std::sqrt(14));
 }
 
 TEST(Vec3, TestLengthSq) {
   Vec3 u{1,2,3};
-  float res = u.length_sq();
-
-  EXPECT_EQ(res, 14);
+  EXPECT_FLOAT_EQ(u.length_sq(), 14);
 }
 
 TEST(Vec3, TestNormalize) {
