@@ -1,3 +1,4 @@
+#include <cmath>
 #include <gtest/gtest.h>
 #include "../include/vec3.hpp"
 
@@ -61,4 +62,19 @@ TEST(Vec3, TestCross) {
   EXPECT_EQ(res.x, -3);
   EXPECT_EQ(res.y, 6);
   EXPECT_EQ(res.z, -3);
+}
+
+TEST(Vec3, TestLength) {
+  Vec3 u{1,2,3};
+  float res = u.length();
+  float expected = std::sqrt(14);
+
+  EXPECT_EQ(res, expected);
+}
+
+TEST(Vec3, TestLengthSq) {
+  Vec3 u{1,2,3};
+  float res = u.length_sq();
+
+  EXPECT_EQ(res, 14);
 }
