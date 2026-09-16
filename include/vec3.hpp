@@ -16,6 +16,7 @@ class Vec3 {
         Vec3 cross(const Vec3& other) const;
         float length() const;
         float length_sq() const;
+        Vec3 normalize() const;
 };
 
 inline Vec3::Vec3(float X, float Y, float Z): x(X), y(Y), z(Z) {};
@@ -48,4 +49,9 @@ inline float Vec3::length() const {
 
 inline float Vec3::length_sq() const {
     return x*x + y*y + z*z;
+}
+
+inline Vec3 Vec3::normalize() const {
+    float len = length();
+    return Vec3(x/len, y/len, z/len);
 }

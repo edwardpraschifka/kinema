@@ -78,3 +78,12 @@ TEST(Vec3, TestLengthSq) {
 
   EXPECT_EQ(res, 14);
 }
+
+TEST(Vec3, TestNormalize) {
+  Vec3 u{1,2,3};
+  Vec3 normalized{u.normalize()};
+
+  EXPECT_FLOAT_EQ(normalized.x, 1/std::sqrt(14));
+  EXPECT_FLOAT_EQ(normalized.y, 2/std::sqrt(14));
+  EXPECT_FLOAT_EQ(normalized.z, 3/std::sqrt(14));
+}
