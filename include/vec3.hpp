@@ -11,6 +11,7 @@ class Vec3 {
 
         Vec3 multiply(const float k) const;
         float dot(const Vec3& other) const;
+        Vec3 cross(const Vec3& other) const;
 };
 
 inline Vec3::Vec3(float X, float Y, float Z): x(X), y(Y), z(Z) {};
@@ -29,4 +30,10 @@ inline Vec3 Vec3::multiply(const float k) const {
 
 inline float Vec3::dot(const Vec3& other) const {
     return (x*other.x) + (y*other.y) + (z*other.z);
+}
+
+inline Vec3 Vec3::cross(const Vec3& other) const {
+    return Vec3(y*other.z - z*other.y,
+                z*other.x - x*other.z,
+                x*other.y - y*other.x);
 }

@@ -51,3 +51,14 @@ TEST(Vec3, TestDot) {
 
   EXPECT_EQ(res, 32);
 }
+
+TEST(Vec3, TestCross) {
+
+  Vec3 u{1,2,3};
+  Vec3 v{4,5,6};
+  Vec3 res = u.cross(v);
+
+  EXPECT_EQ(res.x, -3);
+  EXPECT_EQ(res.y, 6);
+  EXPECT_EQ(res.z, -3);
+}
