@@ -22,7 +22,7 @@ class Vec3 {
         Vec3 operator-() const;
         float operator[](const std::size_t i) const;
         float& operator[](const std::size_t i);
-        friend std::ostream& operator<<(std::ostream& os, const Vec3 v);
+        friend std::ostream& operator<<(std::ostream& os, const Vec3& v);
         
         float dot(const Vec3& other) const;
         Vec3 cross(const Vec3& other) const;
@@ -54,11 +54,14 @@ inline void Vec3::operator-=(const Vec3& other) {
 }
 
 inline bool Vec3::operator==(const Vec3& other) const {
-    return (x == other.x && y == other.y && z == other.z);
+    constexpr float epsilon = 1e-6f;
+    return (std::fabs(x - other.x) < epsilon &&
+            std::fabs(y - other.y) < epsilon &&
+            std::fabs(z - other.z) < epsilon);
 }
 
 inline bool Vec3::operator!=(const Vec3& other) const {
-    return (x != other.x || y != other.y || z != other.z);
+    return !(*this == other);
 }
 
 inline Vec3 Vec3::operator*(const float k) const {
@@ -76,7 +79,7 @@ inline void Vec3::operator*=(const float k) {
 }
 
 inline Vec3 Vec3::operator-() const {
-    return Vec3(-1 * x, -1 * y, -1 * z);
+    return Vec3(-x, -y, -z);
 }
 
 inline float Vec3::operator[](const std::size_t i) const {
@@ -93,7 +96,7 @@ inline float& Vec3::operator[](const std::size_t i) {
     return z;
 }
 
-inline std::ostream& operator<<(std::ostream& os, const Vec3 v) {
+inline std::ostream& operator<<(std::ostream& os, const Vec3& v) {
     os << "(" << v.x << "," << v.y << "," << v.z << ")";
     return os;
 }
