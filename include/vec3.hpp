@@ -11,6 +11,8 @@ class Vec3 {
 
         Vec3 operator+(const Vec3& other) const;
         Vec3 operator-(const Vec3& other) const;
+        bool operator==(const Vec3& other) const;
+        bool operator!=(const Vec3& other) const;
 
         Vec3 multiply(const float k) const;
         float dot(const Vec3& other) const;
@@ -29,6 +31,14 @@ inline Vec3 Vec3::operator+(const Vec3& other) const {
 
 inline Vec3 Vec3::operator-(const Vec3& other) const {
     return Vec3(x - other.x, y - other.y, z - other.z);
+}
+
+inline bool Vec3::operator==(const Vec3& other) const {
+    return (x == other.x && y == other.y && z == other.z);
+}
+
+inline bool Vec3::operator!=(const Vec3& other) const {
+    return (x != other.x || y != other.y || z != other.z);
 }
 
 inline Vec3 Vec3::multiply(const float k) const {

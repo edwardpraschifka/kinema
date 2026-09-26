@@ -33,6 +33,23 @@ TEST(Vec3, TestSubtraction) {
   EXPECT_EQ(diff.z, -3);
 }
 
+TEST(Vec3, TestEquality) {
+
+  Vec3 s{1,2,3};
+  Vec3 t{1,2,3};
+  Vec3 u{1,2,4};
+  Vec3 v{3,2,1};
+
+  EXPECT_EQ(s == s, true);
+  EXPECT_EQ(s == t, true);
+  EXPECT_EQ(s == u, false);
+  EXPECT_EQ(s == v, false);
+  EXPECT_EQ(s != s, false);
+  EXPECT_EQ(s != t, false);
+  EXPECT_EQ(s != u, true);
+  EXPECT_EQ(s != v, true);
+}
+
 TEST(Vec3, TestMultiply) {
 
   Vec3 u{1,2,3};
