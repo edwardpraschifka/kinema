@@ -1,4 +1,5 @@
 #include <cmath>
+#include <sstream>
 #include <gtest/gtest.h>
 #include "../include/vec3.hpp"
 
@@ -124,4 +125,11 @@ TEST(Vec3, TestIndex) {
   EXPECT_FLOAT_EQ(v[0], 4);
   EXPECT_FLOAT_EQ(v[1], 5);
   EXPECT_FLOAT_EQ(v[2], 6);
+}
+
+TEST(Vec3, TestPrint) {
+  std::stringstream buffer;
+  Vec3 v{1,2,3};
+  buffer << v;
+  EXPECT_EQ(buffer.str(), "(1,2,3)");
 }

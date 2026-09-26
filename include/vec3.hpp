@@ -18,6 +18,7 @@ class Vec3 {
         Vec3 operator-() const;
         float operator[](const std::size_t i) const;
         float& operator[](const std::size_t i);
+        friend std::ostream& operator<<(std::ostream& os, const Vec3 v);
         
         float dot(const Vec3& other) const;
         Vec3 cross(const Vec3& other) const;
@@ -68,6 +69,11 @@ inline float& Vec3::operator[](const std::size_t i) {
     if (i == 0) return x;
     if (i == 1) return y;
     return z;
+}
+
+inline std::ostream& operator<<(std::ostream& os, const Vec3 v) {
+    os << "(" << v.x << "," << v.y << "," << v.z << ")";
+    return os;
 }
 
 inline float Vec3::dot(const Vec3& other) const {
