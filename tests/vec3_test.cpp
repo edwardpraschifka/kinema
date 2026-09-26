@@ -54,8 +54,9 @@ TEST(Vec3, TestMultiply) {
 
   Vec3 u{1,2,3};
   float k{3.5};
-  Vec3 res = u.multiply(k);
+  Vec3 res = u * k;
 
+  EXPECT_EQ(k * u, u * k);
   EXPECT_FLOAT_EQ(res.x, 3.5);
   EXPECT_FLOAT_EQ(res.y, 7);
   EXPECT_FLOAT_EQ(res.z, 10.5);
