@@ -23,6 +23,17 @@ TEST(Vec3, TestAddition) {
   EXPECT_EQ(sum.z, 9);
 }
 
+TEST(Vec3, TestAdditionAssignment) {
+
+  Vec3 u{1,2,3};
+  Vec3 v{4,5,6};
+  u += v;
+
+  EXPECT_EQ(u.x, 5);
+  EXPECT_EQ(u.y, 7);
+  EXPECT_EQ(u.z, 9);
+}
+
 TEST(Vec3, TestSubtraction) {
 
   Vec3 u{1,2,3};
@@ -32,6 +43,17 @@ TEST(Vec3, TestSubtraction) {
   EXPECT_EQ(diff.x, -3);
   EXPECT_EQ(diff.y, -3);
   EXPECT_EQ(diff.z, -3);
+}
+
+TEST(Vec3, TestSubtractionAssignment) {
+
+  Vec3 u{1,2,3};
+  Vec3 v{4,5,6};
+  u -= v;
+
+  EXPECT_EQ(u.x, -3);
+  EXPECT_EQ(u.y, -3);
+  EXPECT_EQ(u.z, -3);
 }
 
 TEST(Vec3, TestEquality) {
@@ -61,6 +83,17 @@ TEST(Vec3, TestMultiply) {
   EXPECT_FLOAT_EQ(res.x, 3.5);
   EXPECT_FLOAT_EQ(res.y, 7);
   EXPECT_FLOAT_EQ(res.z, 10.5);
+}
+
+TEST(Vec3, TestMultiplyAssignment) {
+
+  Vec3 u{1,2,3};
+  float k{3.5};
+  u *= k;
+
+  EXPECT_FLOAT_EQ(u.x, 3.5);
+  EXPECT_FLOAT_EQ(u.y, 7);
+  EXPECT_FLOAT_EQ(u.z, 10.5);
 }
 
 TEST(Vec3, TestDot) {
