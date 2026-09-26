@@ -15,13 +15,13 @@ class Vec3 {
         bool operator!=(const Vec3& other) const;
         Vec3 operator*(const float k) const;
         friend Vec3 operator*(const float k, const Vec3& v);
-
+        Vec3 operator-() const;
+        
         float dot(const Vec3& other) const;
         Vec3 cross(const Vec3& other) const;
         float length() const;
         float length_sq() const;
         Vec3 normalize() const;
-        Vec3 negate() const;
 };
 
 inline Vec3::Vec3(float X, float Y, float Z): x(X), y(Y), z(Z) {};
@@ -50,6 +50,10 @@ inline Vec3 operator*(const float k, const Vec3& v) {
     return Vec3(k * v.x, k * v.y, k * v.z);
 }
 
+inline Vec3 Vec3::operator-() const {
+    return Vec3(-1 * x, -1 * y, -1 * z);
+}
+
 inline float Vec3::dot(const Vec3& other) const {
     return (x*other.x) + (y*other.y) + (z*other.z);
 }
@@ -72,8 +76,4 @@ inline Vec3 Vec3::normalize() const {
     float len = length();
     if (len == 0) {throw std::runtime_error("Divide by zero");}
     return Vec3(x/len, y/len, z/len);
-}
-
-inline Vec3 Vec3::negate() const {
-    return Vec3(-1 * x, -1 * y, -1 * z);
 }

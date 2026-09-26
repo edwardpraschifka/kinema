@@ -107,7 +107,7 @@ TEST(Vec3, TestNormalizeZeroVector) {
 
 TEST(Vec3, TestNegate) {
   Vec3 u{1,2,3};
-  Vec3 negated{u.negate()};
+  Vec3 negated{-u};
 
   EXPECT_FLOAT_EQ(negated.x, -1);
   EXPECT_FLOAT_EQ(negated.y, -2);
