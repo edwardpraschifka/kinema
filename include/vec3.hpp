@@ -16,6 +16,8 @@ class Vec3 {
         Vec3 operator*(const float k) const;
         friend Vec3 operator*(const float k, const Vec3& v);
         Vec3 operator-() const;
+        float operator[](const std::size_t i) const;
+        float& operator[](const std::size_t i);
         
         float dot(const Vec3& other) const;
         Vec3 cross(const Vec3& other) const;
@@ -52,6 +54,20 @@ inline Vec3 operator*(const float k, const Vec3& v) {
 
 inline Vec3 Vec3::operator-() const {
     return Vec3(-1 * x, -1 * y, -1 * z);
+}
+
+inline float Vec3::operator[](const std::size_t i) const {
+    if (i > 2) throw std::invalid_argument("Index cannot exceed 2");
+    if (i == 0) return x;
+    if (i == 1) return y;
+    return z;
+}
+
+inline float& Vec3::operator[](const std::size_t i) {
+    if (i > 2) throw std::invalid_argument("Index cannot exceed 2");
+    if (i == 0) return x;
+    if (i == 1) return y;
+    return z;
 }
 
 inline float Vec3::dot(const Vec3& other) const {

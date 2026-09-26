@@ -113,3 +113,15 @@ TEST(Vec3, TestNegate) {
   EXPECT_FLOAT_EQ(negated.y, -2);
   EXPECT_FLOAT_EQ(negated.z, -3);
 }
+
+TEST(Vec3, TestIndex) {
+  Vec3 u{1,2,3};
+  const Vec3 v{4,5,6};
+
+  EXPECT_FLOAT_EQ(u[0], 1);
+  EXPECT_FLOAT_EQ(u[1], 2);
+  EXPECT_FLOAT_EQ(u[2], 3);
+  EXPECT_FLOAT_EQ(v[0], 4);
+  EXPECT_FLOAT_EQ(v[1], 5);
+  EXPECT_FLOAT_EQ(v[2], 6);
+}
