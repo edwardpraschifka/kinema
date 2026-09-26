@@ -82,6 +82,11 @@ TEST(Vec3, TestNormalize) {
   EXPECT_FLOAT_EQ(normalized.z, 3/std::sqrt(14));
 }
 
+TEST(Vec3, TestNormalizeZeroVector) {
+  Vec3 u{0,0,0};
+  EXPECT_THROW(u.normalize(), std::runtime_error);
+}
+
 TEST(Vec3, TestNegate) {
   Vec3 u{1,2,3};
   Vec3 negated{u.negate()};

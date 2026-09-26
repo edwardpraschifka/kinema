@@ -6,6 +6,7 @@ class Vec3 {
         float y{0};
         float z{0};
 
+        Vec3();
         Vec3(float X, float Y, float Z);
 
         Vec3 operator+(const Vec3& other) const;
@@ -54,6 +55,7 @@ inline float Vec3::length_sq() const {
 
 inline Vec3 Vec3::normalize() const {
     float len = length();
+    if (len == 0) {throw std::runtime_error("Divide by zero");}
     return Vec3(x/len, y/len, z/len);
 }
 
